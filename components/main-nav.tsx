@@ -39,9 +39,9 @@ const MainNav: React.FC<MainNavProps> = ({
       <NavigationMenu>
         <NavigationMenuList>
           {categories.map((category) => (
-            <>
+            <div key={category.id}>
               {category.subcategories && category.subcategories.length > 0 ? (
-                <NavigationMenuItem key={category.id}>
+                <NavigationMenuItem>
                   <NavigationMenuTrigger>
                     <Link
                       href={`/category/${category.id}`}
@@ -77,7 +77,7 @@ const MainNav: React.FC<MainNavProps> = ({
                   </Link>
                 </NavigationMenuItem>
                 )}
-            </>
+            </div>
           ))}
           <NavigationMenuItem>
             <NavigationMenuTrigger>

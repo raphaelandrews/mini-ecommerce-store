@@ -1,5 +1,23 @@
 {
     "Home": {
-        "featuredProducts": "Productos Destacados"
+        "featuredProducts": "Productos destacados"
+    },
+    "Cart": {
+        "title": "Carrito de compras",
+        "noItems": "Ningún artículo agregado al carrito"
+    },
+    "Summary": {
+        "orderSummary": "Resumen del pedido",
+        "orderTotal": "Total del pedido",
+        "checkout": "Pagar"
+    },
+    "Product": {
+        "relatedItems": "Productos relacionados"
+    },
+    "Info": {
+        "subcategory": "Subcategoría",
+        "country": "País",
+        "fastBuy": "⚡ Compra rápida",
+        "addToCart": "Agregar al carrito"
     }
 }

@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslations } from 'next-intl';
 import { useAuth } from "@clerk/nextjs";
 import axios from "axios";
 
@@ -12,7 +13,8 @@ import Button from "@/components/ui/button-alt";
 import Currency from "@/components/ui/currency";
 
 const Summary = () => {
-  const { userId} = useAuth();
+  const { userId } = useAuth();
+  const t = useTranslations('Summary');
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
@@ -47,15 +49,15 @@ const Summary = () => {
 
   return (
     <div className="mt-16 rounded-lg bg-gray-50 px-4 py-6 sm:p-6 lg:col-span-5 lg:mt-0 lg:p-8">
-      <h2 className="text-lg font-medium text-gray-900">Order summary</h2>
+      <h2 className="text-lg font-medium text-gray-900">{t('orderSummary')}</h2>
       <div className="mt-6 space-y-4">
         <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <div className="text-base font-medium text-gray-900">Order total</div>
+          <div className="text-base font-medium text-gray-900">{t('orderTotal')}</div>
           <Currency value={totalPrice} />
         </div>
       </div>
       <Button onClick={onCheckout} disabled={items.length === 0} className="w-full mt-6">
-        Checkout
+        {t('checkout')}
       </Button>
     </div>
   );

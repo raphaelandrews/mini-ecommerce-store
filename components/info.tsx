@@ -1,6 +1,7 @@
-"use client";
+"use client"
 
 import { useState } from "react";
+import { useTranslations } from 'next-intl';
 import { useAuth } from "@clerk/nextjs";
 import axios from "axios";
 
@@ -16,8 +17,9 @@ interface InfoProps {
 
 const Info: React.FC<InfoProps> = ({ data }) => {
   const cart = useCart();
-  const { userId} = useAuth();
+  const { userId } = useAuth();
   const [quantity, setQuantity] = useState(1);
+  const t = useTranslations('Info');
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -54,13 +56,13 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       <hr className="my-4" />
       <div className="flex flex-col gap-y-6">
         <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">Subctegory:</h3>
+          <h3 className="font-semibold text-black">{t('subcategory')}:</h3>
           <div>
             {data?.subcategory?.name}
           </div>
         </div>
         <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">Country:</h3>
+          <h3 className="font-semibold text-black">{t('country')}:</h3>
         </div>
       </div>
       <div className="flex items-center space-x-4 mt-8">
@@ -82,10 +84,10 @@ const Info: React.FC<InfoProps> = ({ data }) => {
       </div>
       <div className="flex gap-3 mt-4">
         <Button onClick={onCheckout} className="w-full">
-          ⚡ Fast Buy
+          {t('fastBuy')}
         </Button>
         <Button onClick={onAddToCart} className="w-full">
-          Add To Cart
+          {t('addToCart')}
         </Button>
       </div>
     </div>

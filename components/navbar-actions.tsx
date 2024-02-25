@@ -1,13 +1,16 @@
 "use client";
 
-import { ShoppingCartIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { redirect, useRouter } from "next/navigation";
+import { UserButton, auth } from "@clerk/nextjs";
+import { ShoppingCartIcon } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import useCart from "@/hooks/use-cart";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
 
-const NavbarActions = () => {
+const NavbarActions = ({userId}: {userId: any}) => {
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -33,6 +36,24 @@ const NavbarActions = () => {
           {cart.items.length}
         </span>
       </Button>
+      <div className="ml-auto flex items-center space-x-4">
+        <ThemeToggle />
+        {userId ? (
+          <UserButton
+            afterSignOutUrl="/"
+            appearance={{
+              elements: {
+                userButtonAvatarBox:
+                  "w-10 h-10",
+              },
+            }}
+          />
+        ) : (
+          <Button onClick={() => router.push('/sign-in')}>
+            Login
+          </Button>
+        )}
+      </div>
     </div>
   );
 }

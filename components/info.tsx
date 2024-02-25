@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAuth } from "@clerk/nextjs";
 import axios from "axios";
 
 import { Product } from "@/types";
@@ -15,6 +16,7 @@ interface InfoProps {
 
 const Info: React.FC<InfoProps> = ({ data }) => {
   const cart = useCart();
+  const { userId} = useAuth();
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {
@@ -31,6 +33,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
       productIds: [data.id],
       quantities: [quantity],
+      clientId: userId
     });
 
     window.location = response.data.url;
@@ -44,9 +47,9 @@ const Info: React.FC<InfoProps> = ({ data }) => {
     <div>
       <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
       <div className="mt-3 flex items-end justify-between">
-        <p className="text-2xl text-gray-900">
+        <div className="text-2xl text-gray-900">
           <Currency value={parseInt(data?.price) * quantity} />
-        </p>
+        </div>
       </div>
       <hr className="my-4" />
       <div className="flex flex-col gap-y-6">

@@ -1,8 +1,9 @@
+import getProduct from '@/actions/get-product';
+import getProducts from '@/actions/get-products';
+
 import ProductList from '@/components/product-list'
 import Gallery from '@/components/gallery';
 import Info from '@/components/info';
-import getProduct from '@/actions/get-product';
-import getProducts from '@/actions/get-products';
 import Container from '@/components/ui/container';
 
 export const revalidate = 0;

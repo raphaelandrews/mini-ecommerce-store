@@ -7,6 +7,10 @@ import NavbarActions from "@/components/navbar-actions";
 const Navbar = () => {
   const { userId } = auth();
 
+  if (!userId) {
+    return null;
+  }
+ 
   return ( 
       <Container>
         <div className="relative flex items-center h-16 md:h-20">

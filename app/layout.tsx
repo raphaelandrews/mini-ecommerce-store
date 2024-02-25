@@ -2,7 +2,7 @@ import { Inter } from 'next/font/google';
 import { ClerkProvider } from '@clerk/nextjs';
 
 import './globals.css'
-import ModalProvider from '@/providers/modal-provider';
+import ModalProvider from '@/providers/modal-provider/modal-provider';
 import ToastProvider from '@/providers/toast-provider';
 
 import CategoriesList from '@/components/categories-list'

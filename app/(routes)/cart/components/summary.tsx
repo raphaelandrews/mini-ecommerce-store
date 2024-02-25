@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
+import { useAuth } from "@clerk/nextjs";
 import axios from "axios";
 
 import useCart from "@/hooks/use-cart";
@@ -11,6 +12,7 @@ import Button from "@/components/ui/button-alt";
 import Currency from "@/components/ui/currency";
 
 const Summary = () => {
+  const { userId} = useAuth();
   const searchParams = useSearchParams();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
@@ -37,6 +39,7 @@ const Summary = () => {
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
       productIds,
       quantities,
+      clientId: userId
     });
 
     window.location = response.data.url;

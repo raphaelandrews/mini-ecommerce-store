@@ -1,6 +1,7 @@
 "use client";
 
 import usePreviewModal from "@/hooks/use-preview-modal";
+
 import Gallery from "@/components/gallery";
 import Info from "@/components/info";
 import Modal from "@/components/ui/modal";
@@ -14,9 +15,9 @@ const PreviewModal = () => {
     return null;
   }
 
-  return ( 
-    <Modal 
-      open={previewModal.isOpen} 
+  return (
+    <Modal
+      open={previewModal.isOpen}
       onClose={previewModal.onClose}
     >
       <div className="grid w-full grid-cols-1 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
@@ -30,5 +31,5 @@ const PreviewModal = () => {
     </Modal>
   );
 }
- 
+
 export default PreviewModal;

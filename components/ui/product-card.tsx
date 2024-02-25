@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { MouseEventHandler, useState } from "react";
+import { useAuth } from "@clerk/nextjs";
 import { Expand, ShoppingCart } from "lucide-react";
 import axios from "axios";
 
@@ -24,6 +25,7 @@ const ProductCard: React.FC<ProductCard> = ({
   const previewModal = usePreviewModal();
   const cart = useCart();
   const router = useRouter();
+  const { userId} = useAuth();
   const [quantity, setQuantity] = useState(1);
 
   const increaseQuantity = () => {
@@ -56,6 +58,7 @@ const ProductCard: React.FC<ProductCard> = ({
     const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
       productIds: [data.id],
       quantities: [quantity],
+      clientId: userId
     });
 
     window.location = response.data.url;

@@ -1,5 +1,5 @@
-import ProductCard from "@/components/ui/product-card";
 import { Product } from "@/types";
+import ProductCard from "@/components/ui/product-card";
 import NoResults from "@/components/ui/no-results";
 
 interface ProductListProps {

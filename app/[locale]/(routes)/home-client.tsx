@@ -16,14 +16,14 @@ const HomePageClient = ({billboard, products}: HomePageProps) => {
 
   return (
     <Container>
-      <div className="space-y-10 pb-10">
+      <main className="space-y-10 pb-10">
         <Billboard 
           data={billboard}
         />
         <div className="flex flex-col gap-y-8">
           <ProductList title={t('featuredProducts')} items={products} />
         </div>
-      </div>
+      </main>
     </Container>
   )
 };

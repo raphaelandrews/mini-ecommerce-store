@@ -24,7 +24,9 @@ const ProductPage: React.FC<ProductPageProps> = async ({
   }
 
   return (
-    <ProductPageClient product={product} suggestedProducts={suggestedProducts} />
+    <main>
+      <ProductPageClient product={product} suggestedProducts={suggestedProducts} />
+    </main>
   )
 }
 

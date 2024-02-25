@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google';
-import {NextIntlClientProvider, useMessages} from 'next-intl';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 import { ClerkProvider } from '@clerk/nextjs';
 
 import './globals.css'
@@ -30,17 +30,19 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   const messages = useMessages();
-  
+
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <ClerkProvider>
         <html lang={locale}>
           <body className={font.className}>
-            <ToastProvider />
-            <ModalProvider />
-            <Navbar />
-            <CategoriesList />
-            {children}
+              <ToastProvider />
+              <ModalProvider />
+              <header>
+                <Navbar />
+              </header>
+              <CategoriesList />
+              {children}
             <Footer />
           </body>
         </html>

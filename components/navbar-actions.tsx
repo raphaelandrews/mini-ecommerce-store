@@ -1,10 +1,9 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
-import { ShoppingCartIcon } from "lucide-react";
+import { CheckIcon, ShoppingCartIcon } from "lucide-react";
 
 import useCart from "@/hooks/use-cart";
 
@@ -12,12 +11,12 @@ import { Button } from "@/components/ui/button";
 import {
   Select,
   SelectContent,
-  SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { locales } from "@/i18n";
+import { cn } from "@/lib/utils";
 
 const NavbarActions = ({ userId }: { userId: any }) => {
   const pathname = usePathname();
@@ -35,14 +34,14 @@ const NavbarActions = ({ userId }: { userId: any }) => {
   const router = useRouter();
   const cart = useCart();
 
-const handleLanguageChange = (selectedLanguage: string) => {
-  const pathnameParts = pathname.split('/');
-  const restOfPathname = pathnameParts.slice(2).join('/');
-  const newPathname = `/${selectedLanguage}/${restOfPathname}`;
+  const handleLanguageChange = (selectedLanguage: string) => {
+    const pathnameParts = pathname.split('/');
+    const restOfPathname = pathnameParts.slice(2).join('/');
+    const newPathname = `/${selectedLanguage}/${restOfPathname}`;
 
-  router.push(newPathname); 
-  setLanguage(pathnameParts[1].toUpperCase()); 
-};
+    router.push(newPathname);
+    setLanguage(pathnameParts[1].toUpperCase());
+  };
 
 
   if (!isMounted) {
@@ -62,14 +61,21 @@ const handleLanguageChange = (selectedLanguage: string) => {
         </span>
       </Button>
       <Select>
-        <SelectTrigger className="w-[80px]">
+        <SelectTrigger className="w-20">
           <SelectValue placeholder={language} />
         </SelectTrigger>
         <SelectContent>
           {locales.map((lang) => (
-            <div key={lang} onClick={() => handleLanguageChange(lang)}>
-                {lang.toUpperCase()}
-            </div>
+            <SelectItem
+              key={lang}
+              onClick={() => handleLanguageChange(lang)}
+              className="flex items-center gap-2"
+            >
+              {lang.toUpperCase() === language ? (
+                <CheckIcon className="h-4 w-4" />
+              ) : <div className="h-4 w-4" />}
+              {lang.toUpperCase()}
+            </SelectItem>
           ))}
         </SelectContent>
       </Select>
@@ -95,3 +101,23 @@ const handleLanguageChange = (selectedLanguage: string) => {
 }
 
 export default NavbarActions;
+
+interface SelectItemProps {
+  children: ReactNode;
+  className?: string;
+  onClick?: () => void;
+}
+
+const SelectItem = ({ children, className, onClick }: SelectItemProps) => {
+  return (
+    <div
+      className={cn(
+        "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground hover:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        className
+      )}
+      onClick={onClick}
+    >
+      {children}
+    </div>
+  )
+};

@@ -50,16 +50,6 @@ const NavbarActions = ({ userId }: { userId: any }) => {
 
   return (
     <div className="ml-auto flex items-center gap-x-4">
-      <Button
-        onClick={() => router.push('/cart')}
-        variant='default'
-        className="gap-3"
-      >
-        <ShoppingCartIcon size={20} />
-        <span className="mt-1 font-medium">
-          {cart.items.length}
-        </span>
-      </Button>
       <Select>
         <SelectTrigger className="w-20">
           <SelectValue placeholder={language} />
@@ -79,6 +69,17 @@ const NavbarActions = ({ userId }: { userId: any }) => {
           ))}
         </SelectContent>
       </Select>
+
+      <Button
+        onClick={() => router.push('/cart')}
+        variant='tertiary'
+        className="relative gap-3 px-2.5"
+      >
+        <ShoppingCartIcon size={20} />
+        <span className="absolute flex items-center justify-center -top-1/4 -right-1/4 font-medium text-background w-6 h-6 bg-accent rounded">
+          {cart.items.reduce((total, currentItem) => total + currentItem.quantity, 0)}
+        </span>
+      </Button>
 
       <ThemeToggle />
       {userId ? (
@@ -112,7 +113,7 @@ const SelectItem = ({ children, className, onClick }: SelectItemProps) => {
   return (
     <div
       className={cn(
-        "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground hover:bg-accent data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground hover:bg-tertiary data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
       )}
       onClick={onClick}

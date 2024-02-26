@@ -43,6 +43,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 
   const onAddToCart = () => {
     cart.addItem(data, quantity);
+    setQuantity(1);
   }
 
   return (

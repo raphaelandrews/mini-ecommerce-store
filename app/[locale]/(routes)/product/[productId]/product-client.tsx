@@ -23,7 +23,6 @@ const ProductPageClient: React.FC<ProductPageClientProps> = ({
   const t = useTranslations('Product');
 
   return (
-    <div className="bg-white">
       <Container>
         <div className="px-4 py-10 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
@@ -36,7 +35,6 @@ const ProductPageClient: React.FC<ProductPageClientProps> = ({
           <ProductList title={t('relatedItems')} items={suggestedProducts} />
         </div>
       </Container>
-    </div>
   )
 }
 

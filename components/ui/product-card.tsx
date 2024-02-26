@@ -50,8 +50,8 @@ const ProductCard: React.FC<ProductCard> = ({
 
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
-
     cart.addItem(data, quantity);
+    setQuantity(1);
   };
 
   const onCheckout = async () => {
@@ -65,7 +65,7 @@ const ProductCard: React.FC<ProductCard> = ({
   };
 
   return (
-    <div className="bg-white group rounded-xl border p-3 space-y-4">
+    <div className="group rounded-xl border p-3 space-y-4">
       <div onClick={handleClick} className="aspect-square rounded-xl bg-gray-100 relative cursor-pointer">
         <Image
           src={data.images?.[0]?.url}
@@ -77,11 +77,11 @@ const ProductCard: React.FC<ProductCard> = ({
           <div className="flex gap-x-6 justify-center">
             <IconButton
               onClick={onPreview}
-              icon={<Expand size={20} className="text-gray-600" />}
+              icon={<Expand size={20} className="text-muted" />}
             />
             <IconButton
               onClick={onAddToCart}
-              icon={<ShoppingCart size={20} className="text-gray-600" />}
+              icon={<ShoppingCart size={20} className="text-muted" />}
             />
           </div>
         </div>
@@ -96,7 +96,7 @@ const ProductCard: React.FC<ProductCard> = ({
       <div className="flex items-center space-x-4 mt-8">
         <Button
           onClick={decreaseQuantity}
-          variant="secondary"
+          variant="outline"
           className="font-semibold w-10 h-10 p-0"
         >
           -
@@ -104,7 +104,7 @@ const ProductCard: React.FC<ProductCard> = ({
         <span className="font-semibold">{quantity}</span>
         <Button
           onClick={increaseQuantity}
-          variant="secondary"
+          variant="outline"
           className="font-semibold w-10 h-10 p-0"
         >
           +

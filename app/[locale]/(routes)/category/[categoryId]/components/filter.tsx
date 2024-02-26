@@ -3,7 +3,7 @@
 import qs from "query-string";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import Button from "@/components/ui/button-alt";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Country, Subcategory } from "@/types";
 
@@ -22,7 +22,7 @@ const Filter: React.FC<FilterProps> = ({
   const router = useRouter();
 
   const selectedValue = searchParams.get(valueKey);
-  
+
   const onClick = (id: string) => {
     const current = qs.parse(searchParams.toString());
 
@@ -43,20 +43,18 @@ const Filter: React.FC<FilterProps> = ({
     router.push(url);
   }
 
-  return ( 
+  return (
     <div className="mb-8">
       <h3 className="text-lg font-semibold">
         {name}
       </h3>
-      <hr className="my-4" />
-      <div className="flex flex-wrap gap-2">
+
+      <div className="flex flex-wrap gap-2 mt-4">
         {data.map((filter) => (
           <div key={filter.id} className="flex items-center">
             <Button
-              className={cn(
-                'rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300',
-                selectedValue === filter.id && 'bg-black text-white'
-              )}
+              variant='outline'
+              className={cn(selectedValue === filter.id && 'text-secondary-foreground bg-secondary')}
               onClick={() => onClick(filter.id)}
             >
               {filter.name}

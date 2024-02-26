@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Category, Country, Subcategory } from "@/types";
 
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -35,7 +37,8 @@ const MainNav: React.FC<MainNavProps> = ({
   }));
 
   return (
-      <NavigationMenu>
+      <NavigationMenu className="mt-4">
+         <ScrollArea className="w-full whitespace-nowrap rounded-md">
         <NavigationMenuList className="gap-2">
           {categories.map((category) => (
             <div key={category.id}>
@@ -101,6 +104,8 @@ const MainNav: React.FC<MainNavProps> = ({
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
+          <ScrollBar orientation="horizontal" className="border-transparent h-0" />
+          </ScrollArea>
       </NavigationMenu >
   )
 };

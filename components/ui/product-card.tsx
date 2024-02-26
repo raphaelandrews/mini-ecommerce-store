@@ -110,11 +110,11 @@ const ProductCard: React.FC<ProductCard> = ({
           +
         </Button>
       </div>
-      <div className="flex gap-3">
-        <Button onClick={onCheckout} className="w-full">
+      <div className="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 gap-3">
+        <Button onClick={onCheckout}>
           ⚡ Fast Buy
         </Button>
-        <Button onClick={onAddToCart} className="w-full">
+        <Button onClick={onAddToCart}>
           Add To Cart
         </Button>
       </div>

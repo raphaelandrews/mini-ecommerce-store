@@ -1,4 +1,4 @@
-import {useTranslations} from 'next-intl';
+import { useTranslations } from 'next-intl';
 
 import { Product } from "@/types";
 
@@ -11,18 +11,16 @@ interface HomePageProps {
   products: Product[];
 }
 
-const HomePageClient = ({billboard, products}: HomePageProps) => {
+const HomePageClient = ({ billboard, products }: HomePageProps) => {
   const t = useTranslations('Home');
 
   return (
     <Container>
       <main className="space-y-10 min-h-screen pb-10">
-        <Billboard 
+        <Billboard
           data={billboard}
         />
-        <div className="flex flex-col gap-y-8">
-          <ProductList title={t('featuredProducts')} items={products} />
-        </div>
+        <ProductList title={t('featuredProducts')} items={products} />
       </main>
     </Container>
   )

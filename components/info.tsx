@@ -55,7 +55,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         </div>
       </div>
       <hr className="my-4" />
-      <div className="flex flex-col gap-y-6">
+      <div className="flex flex-col gap-y-3">
         <div className="flex items-center gap-x-2">
           <h3 className="font-semibold text-primary">{t('subcategory')}:</h3>
           <span className="text-muted">
@@ -86,7 +86,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
           +
         </Button>
       </div>
-      <div className="flex gap-3 mt-4">
+      <div className="flex flex-col sm:flex-row gap-3 mt-4">
         <Button onClick={onCheckout} className="w-full">
           {t('fastBuy')}
         </Button>

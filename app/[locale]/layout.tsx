@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import './globals.css'
 import ModalProvider from '@/providers/modal-provider/modal-provider';
 import ToastProvider from '@/providers/toast-provider';
+import { ThemeProvider } from '@/providers/theme-provider';
 
 import CategoriesList from '@/components/categories-list'
 import Footer from '@/components/footer';
@@ -35,14 +36,20 @@ export default function RootLayout({
       <ClerkProvider>
         <html lang={locale}>
           <body className={font.className}>
-            <ToastProvider />
-            <ModalProvider />
-            <header>
-              <Navbar />
-            </header>
-            <CategoriesList />
-            {children}
-            <Footer />
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+            >
+              <ToastProvider />
+              <ModalProvider />
+              <header>
+                <Navbar />
+              </header>
+              <CategoriesList />
+              {children}
+              <Footer />
+            </ThemeProvider>
           </body>
         </html>
       </ClerkProvider>

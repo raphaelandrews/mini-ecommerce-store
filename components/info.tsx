@@ -48,28 +48,31 @@ const Info: React.FC<InfoProps> = ({ data }) => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-gray-900">{data.name}</h1>
+      <h1 className="text-3xl font-bold text-primary">{data.name}</h1>
       <div className="mt-3 flex items-end justify-between">
-        <div className="text-2xl text-gray-900">
+        <div className="text-2xl text-primary">
           <Currency value={parseInt(data?.price) * quantity} />
         </div>
       </div>
       <hr className="my-4" />
       <div className="flex flex-col gap-y-6">
-        <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">{t('subcategory')}:</h3>
-          <div>
+        <div className="flex items-center gap-x-2">
+          <h3 className="font-semibold text-primary">{t('subcategory')}:</h3>
+          <span className="text-muted">
             {data?.subcategory?.name}
-          </div>
+          </span>
         </div>
-        <div className="flex items-center gap-x-4">
-          <h3 className="font-semibold text-black">{t('country')}:</h3>
+        <div className="flex items-center gap-x-2">
+          <h3 className="font-semibold text-primary">{t('country')}:</h3>
+          <span className="text-muted">
+            {data?.country.name}
+          </span>
         </div>
       </div>
       <div className="flex items-center space-x-4 mt-8">
         <Button
           onClick={decreaseQuantity}
-          variant="secondary"
+          variant="outline"
           className="font-semibold w-10 h-10 p-0"
         >
           -
@@ -77,7 +80,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         <span className="font-semibold">{quantity}</span>
         <Button
           onClick={increaseQuantity}
-          variant="secondary"
+          variant="outline"
           className="font-semibold w-10 h-10 p-0"
         >
           +

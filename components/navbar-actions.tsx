@@ -76,7 +76,7 @@ const NavbarActions = ({ userId }: { userId: any }) => {
         className="relative gap-3 px-2.5"
       >
         <ShoppingCartIcon size={20} />
-        <span className="absolute flex items-center justify-center -top-1/4 -right-1/4 font-medium text-background w-6 h-6 bg-accent rounded">
+        <span className="absolute flex items-center justify-center -top-1/4 -right-1/4 font-medium text-accent-foreground w-6 h-6 bg-accent rounded">
           {cart.items.reduce((total, currentItem) => total + currentItem.quantity, 0)}
         </span>
       </Button>
@@ -113,7 +113,7 @@ const SelectItem = ({ children, className, onClick }: SelectItemProps) => {
   return (
     <div
       className={cn(
-        "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none focus:bg-accent focus:text-accent-foreground hover:bg-tertiary data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+        "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none hover:text-tertiary-foreground hover:bg-tertiary focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
         className
       )}
       onClick={onClick}

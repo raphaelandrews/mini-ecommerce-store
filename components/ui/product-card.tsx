@@ -65,7 +65,7 @@ const ProductCard: React.FC<ProductCard> = ({
   };
 
   return (
-    <div className="group rounded-xl border p-3 space-y-4">
+    <div className="group p-3 space-y-4 bg-card rounded-xl border dark:border-2">
       <div onClick={handleClick} className="aspect-square rounded-xl bg-gray-100 relative cursor-pointer">
         <Image
           src={data.images?.[0]?.url}
@@ -88,7 +88,7 @@ const ProductCard: React.FC<ProductCard> = ({
       </div>
       <div onClick={handleClick} className="cursor-pointer">
         <p className="font-semibold text-lg">{data.name}</p>
-        <p className="text-sm text-gray-500">{data.subcategory?.name}</p>
+        <p className="text-sm text-muted">{data.subcategory?.name}</p>
       </div>
       <div className="flex items-center justify-between">
         <Currency value={parseInt(data?.price) * quantity} />

@@ -35,7 +35,6 @@ const MainNav: React.FC<MainNavProps> = ({
   }));
 
   return (
-    <>
       <NavigationMenu>
         <NavigationMenuList className="gap-2">
           {categories.map((category) => (
@@ -50,7 +49,7 @@ const MainNav: React.FC<MainNavProps> = ({
                     </Link>
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
-                    <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+                    <ul className="grid lg:w-[500px] lg:grid-cols-[.75fr_1fr] gap-3 p-4 md:w-[400px]">
                       {category.subcategories && category.subcategories.length > 0 && (
                         <>
                           {category.subcategories.map((subcategory: Subcategory) => (
@@ -103,7 +102,6 @@ const MainNav: React.FC<MainNavProps> = ({
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu >
-    </>
   )
 };
 
@@ -119,7 +117,7 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-tertiary hover:text-tertiary-foreground focus:bg-accent focus:text-background",
+            "flex items-center select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:text-tertiary-foreground hover:bg-tertiary focus:text-background focus:bg-accent",
             className
           )}
           {...props}

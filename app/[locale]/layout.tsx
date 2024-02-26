@@ -14,7 +14,6 @@ export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "pt" }, { locale: "es" }];
 }
 
-
 const font = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -36,13 +35,13 @@ export default function RootLayout({
       <ClerkProvider>
         <html lang={locale}>
           <body className={font.className}>
-              <ToastProvider />
-              <ModalProvider />
-              <header>
-                <Navbar />
-              </header>
-              <CategoriesList />
-              {children}
+            <ToastProvider />
+            <ModalProvider />
+            <header>
+              <Navbar />
+            </header>
+            <CategoriesList />
+            {children}
             <Footer />
           </body>
         </html>

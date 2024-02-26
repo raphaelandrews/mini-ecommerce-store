@@ -24,7 +24,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({
   }
 
   return (
-    <main>
+    <main className='min-h-screen'>
       <ProductPageClient product={product} suggestedProducts={suggestedProducts} />
     </main>
   )

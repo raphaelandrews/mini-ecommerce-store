@@ -36,7 +36,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
 
   return (
     <Container>
-        <main className="bg-white">
+        <main className="bg-white min-h-screen">
         <Billboard 
           data={category.billboard}
         />

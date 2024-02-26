@@ -16,7 +16,7 @@ const HomePageClient = ({billboard, products}: HomePageProps) => {
 
   return (
     <Container>
-      <main className="space-y-10 pb-10">
+      <main className="space-y-10 min-h-screen pb-10">
         <Billboard 
           data={billboard}
         />

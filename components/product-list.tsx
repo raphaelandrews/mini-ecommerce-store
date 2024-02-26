@@ -21,7 +21,7 @@ const ProductList: React.FC<ProductListProps> = ({
 }) => {
   return (
     <>
-      <h3 className="font-bold text-3xl">{title}</h3>
+      <h3 className="font-bold text-3xl mb-10">{title}</h3>
       {items.length === 0 && <NoResults />}
       <Carousel
         opts={{
@@ -30,7 +30,7 @@ const ProductList: React.FC<ProductListProps> = ({
       >
         <CarouselContent>
           {items.map((item) => (
-            <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={item.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
               <ProductCard key={item.id} data={item} />
             </CarouselItem>
           ))}

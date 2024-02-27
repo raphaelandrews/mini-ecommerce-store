@@ -1,12 +1,14 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import { CheckIcon, ShoppingCartIcon } from "lucide-react";
 
 import useCart from "@/hooks/use-cart";
 import { cn } from "@/lib/utils";
+import { formatFlag } from "@/utils/format-flag";
 import { locales } from "@/i18n";
 
 import { Button } from "@/components/ui/button";
@@ -61,12 +63,19 @@ const NavbarActions = ({ userId }: { userId: any }) => {
               <SelectItem
                 key={lang}
                 onClick={() => handleLanguageChange(lang)}
-                className="flex items-center gap-2"
+                className={cn("flex items-center gap-2", lang.toUpperCase() === language ? "bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : '')}
               >
+                <Image
+                  src={formatFlag(lang)}
+                  alt={lang}
+                  width={20}
+                  height={20}
+                />
+                {lang.toUpperCase()}
+
                 {lang.toUpperCase() === language ? (
                   <CheckIcon className="h-4 w-4" />
                 ) : <div className="h-4 w-4" />}
-                {lang.toUpperCase()}
               </SelectItem>
             ))}
           </SelectContent>
@@ -76,15 +85,15 @@ const NavbarActions = ({ userId }: { userId: any }) => {
       </div>
 
       <Button
-          onClick={() => router.push('/cart')}
-          variant='tertiary'
-          className="relative gap-3 px-2.5"
-        >
-          <ShoppingCartIcon size={20} />
-          <span className="absolute flex items-center justify-center -top-1/4 -right-1/4 font-medium text-accent-foreground w-6 h-6 bg-accent rounded">
-            {cart.items.reduce((total, currentItem) => total + currentItem.quantity, 0)}
-          </span>
-        </Button>
+        onClick={() => router.push('/cart')}
+        variant='tertiary'
+        className="relative gap-3 px-2.5"
+      >
+        <ShoppingCartIcon size={20} />
+        <span className="absolute flex items-center justify-center -top-1/4 -right-1/4 font-medium text-accent-foreground w-6 h-6 bg-accent rounded">
+          {cart.items.reduce((total, currentItem) => total + currentItem.quantity, 0)}
+        </span>
+      </Button>
 
       <CommandMenu />
 

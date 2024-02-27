@@ -1,24 +1,19 @@
 "use client"
 
 import * as React from "react";
+import Image from "next/image";
 import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
 import {
-    Calculator,
-    Calendar,
     CheckIcon,
     CommandIcon,
-    CreditCard,
     LaptopIcon,
     MoonIcon,
-    Settings,
-    Smile,
     SunIcon,
-    User,
 } from "lucide-react";
 
-import useCart from "@/hooks/use-cart";
 import { cn } from "@/lib/utils";
+import { formatFlag } from "@/utils/format-flag";
 import { locales } from "@/i18n";
 
 import { Button } from "@/components/ui/button";
@@ -30,40 +25,32 @@ import {
     CommandItem,
     CommandList,
     CommandSeparator,
-    CommandShortcut,
 } from "@/components/ui/command";
-import {
-    Select,
-    SelectContent,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 
 const CommandMenu = () => {
     const [open, setOpen] = React.useState(false);
     const { setTheme } = useTheme();
     const pathname = usePathname();
     const [language, setLanguage] = React.useState<string>(() => {
-      const pathnameParts = pathname.split('/');
-      return pathnameParts[1].toUpperCase();
+        const pathnameParts = pathname.split('/');
+        return pathnameParts[1].toUpperCase();
     });
 
     const [isMounted, setIsMounted] = React.useState(false);
 
     React.useEffect(() => {
-      setIsMounted(true);
+        setIsMounted(true);
     }, []);
-  
+
     const router = useRouter();
-    const cart = useCart();
-  
+
     const handleLanguageChange = (selectedLanguage: string) => {
-      const pathnameParts = pathname.split('/');
-      const restOfPathname = pathnameParts.slice(2).join('/');
-      const newPathname = `/${selectedLanguage}/${restOfPathname}`;
-  
-      router.push(newPathname);
-      setLanguage(pathnameParts[1].toUpperCase());
+        const pathnameParts = pathname.split('/');
+        const restOfPathname = pathnameParts.slice(2).join('/');
+        const newPathname = `/${selectedLanguage}/${restOfPathname}`;
+
+        router.push(newPathname);
+        setLanguage(pathnameParts[1].toUpperCase());
     };
 
     React.useEffect(() => {
@@ -82,9 +69,9 @@ const CommandMenu = () => {
         setOpen(false)
         command()
     }, [])
-  
+
     if (!isMounted) {
-      return null;
+        return null;
     }
 
     return (
@@ -98,18 +85,25 @@ const CommandMenu = () => {
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="Language">
-                                {locales.map((lang) => (
-                                    <CommandItem
-                                        key={lang}
-                                        onClick={() => handleLanguageChange(lang)}
-                                        className="flex items-center gap-2"
-                                    >
-                                        {lang.toUpperCase() === language ? (
-                                            <CheckIcon className="h-4 w-4" />
-                                        ) : <div className="h-4 w-4" />}
-                                        {lang.toUpperCase()}
-                                    </CommandItem>
-                                ))}
+                        {locales.map((lang) => (
+                            <CommandItem
+                                key={lang}
+                                onClick={() => handleLanguageChange(lang)}
+                                className={cn("flex items-center gap-2", lang.toUpperCase() === language ? "bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : '')}
+                            >
+                                <Image
+                                    src={formatFlag(lang)}
+                                    alt={lang}
+                                    width={20}
+                                    height={20}
+                                />
+                                {lang.toUpperCase()}
+
+                                {lang.toUpperCase() === language ? (
+                                    <CheckIcon className="h-4 w-4" />
+                                ) : <div className="h-4 w-4" />}
+                            </CommandItem>
+                        ))}
                     </CommandGroup>
                     <CommandSeparator />
                     <CommandGroup heading="Theme">
@@ -138,18 +132,18 @@ interface SelectItemProps {
     children: React.ReactNode;
     className?: string;
     onClick?: () => void;
-  }
+}
 
 const SelectItem = ({ children, className, onClick }: SelectItemProps) => {
     return (
-      <div
-        className={cn(
-          "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none hover:text-tertiary-foreground hover:bg-tertiary focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-          className
-        )}
-        onClick={onClick}
-      >
-        {children}
-      </div>
+        <div
+            className={cn(
+                "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none hover:text-tertiary-foreground hover:bg-tertiary focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+                className
+            )}
+            onClick={onClick}
+        >
+            {children}
+        </div>
     )
-  };
+};

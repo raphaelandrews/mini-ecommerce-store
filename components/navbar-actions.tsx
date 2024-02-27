@@ -57,15 +57,25 @@ const NavbarActions = ({ userId }: { userId: any }) => {
     <div className="ml-auto flex items-center gap-x-4">
       <div className="hidden md:flex items-center gap-x-4">
         <Select>
-          <SelectTrigger className="w-20">
-            <SelectValue placeholder={language} />
+          <SelectTrigger className="w-28">
+            <SelectValue placeholder={
+              <div className="flex items-center gap-2">
+                <Image
+                  src={formatLangFlag(language.toLowerCase())}
+                  alt={language}
+                  width={20}
+                  height={20}
+                />
+                {formatLang(language.toLowerCase())}
+              </div>
+            } />
           </SelectTrigger>
           <SelectContent>
             {locales.map((lang) => (
               <SelectItem
                 key={lang}
                 onClick={() => handleLanguageChange(lang)}
-                className={cn("flex justify-between", lang.toUpperCase() === language ? "bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : '')}
+                className={cn("flex justify-between", lang.toUpperCase() === language ? "dark:text-primary bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : '')}
               >
                 <div className="flex items-center gap-2">
                   <Image
@@ -113,7 +123,7 @@ const NavbarActions = ({ userId }: { userId: any }) => {
         />
       ) : (
         <Button onClick={() => router.push('/sign-in')}>
-           {t('login')}
+          {t('login')}
         </Button>
       )}
     </div>

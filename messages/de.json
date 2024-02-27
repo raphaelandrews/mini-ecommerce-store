@@ -3,7 +3,7 @@
     "featuredProducts": "Hervorgehobene Produkte"
   },
   "Cart": {
-    "title": "Einkaufswagen",
+    "shoppingCart": "Einkaufswagen",
     "noItems": "Keine Artikel zum Warenkorb hinzugefügt."
   },
   "CartItem": {

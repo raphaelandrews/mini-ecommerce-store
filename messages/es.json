@@ -3,7 +3,7 @@
       "featuredProducts": "Productos destacados"
     },
     "Cart": {
-      "title": "Carrito",
+      "shoppingCart": "Carrito",
       "noItems": "No hay elementos añadidos al carrito."
     },
     "CartItem": {

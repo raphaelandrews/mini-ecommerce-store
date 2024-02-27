@@ -3,7 +3,7 @@
     "featuredProducts": "المنتجات المميزة"
   },
   "Cart": {
-    "title": "عربة التسوق",
+    "shoppingCart": "عربة التسوق",
     "noItems": "لم يتم إضافة أي عناصر إلى العربة."
   },
   "CartItem": {

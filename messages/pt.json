@@ -3,7 +3,7 @@
     "featuredProducts": "Produtos em Destaque"
   },
   "Cart": {
-    "title": "Carrinho de Compras",
+    "shoppingCart": "Carrinho de Compras",
     "noItems": "Nenhum item adicionado ao carrinho"
   },
   "CartItem": {
@@ -14,7 +14,7 @@
     "orderTotal": "Total do pedido",
     "checkout": "Checkout",
     "paymentCompleted": "Pagamento concluído.",
-  "somethingWentWrong": "Algo deu errado."
+    "somethingWentWrong": "Algo deu errado."
   },
   "Product": {
     "relatedItems": "Items Relacionados"

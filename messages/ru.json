@@ -3,7 +3,7 @@
     "featuredProducts": "Популярные товары"
   },
   "Cart": {
-    "title": "Корзина",
+    "shoppingCart": "Корзина",
     "noItems": "В корзине нет товаров."
   },
   "CartItem": {

@@ -3,7 +3,7 @@
     "featuredProducts": "Prodotti in primo piano"
   },
   "Cart": {
-    "title": "Carrello",
+    "shoppingCart": "Carrello",
     "noItems": "Nessun articolo aggiunto al carrello."
   },
   "CartItem": {

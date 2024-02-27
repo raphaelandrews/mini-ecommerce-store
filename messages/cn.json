@@ -3,7 +3,7 @@
     "featuredProducts": "精选产品"
   },
   "Cart": {
-    "title": "购物车",
+    "shoppingCart": "购物车",
     "noItems": "购物车中没有商品。"
   },
   "CartItem": {

@@ -3,7 +3,7 @@
     "featuredProducts": "おすすめ商品"
   },
   "Cart": {
-    "title": "ショッピングカート",
+    "shoppingCart": "ショッピングカート",
     "noItems": "カートに商品が追加されていません。"
   },
   "CartItem": {

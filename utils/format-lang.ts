@@ -38,7 +38,7 @@ const langs: Langs = {
     "fr": "FR",
     "it": "IT",
     "jp": "日本",
-    "pt": "BR",
+    "pt": "PT",
     "ru": "РФ",
     "sa": "الم"
 };

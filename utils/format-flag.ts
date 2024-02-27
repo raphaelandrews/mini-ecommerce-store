@@ -19,7 +19,7 @@ const flags: Flags = {
     "en": us,
     "es": es,
     "fr": fr,
-    "if": it,
+    "it": it,
     "jp": jp,
     "pt": br,
     "ru": ru,
@@ -27,5 +27,5 @@ const flags: Flags = {
 };
 
 export function formatFlag(flag: string) {
-    return flags[flag];
+    return flags[flag] || '';
 }

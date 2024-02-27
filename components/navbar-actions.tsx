@@ -63,15 +63,17 @@ const NavbarActions = ({ userId }: { userId: any }) => {
               <SelectItem
                 key={lang}
                 onClick={() => handleLanguageChange(lang)}
-                className={cn("flex items-center gap-2", lang.toUpperCase() === language ? "bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : '')}
+                className={cn("flex justify-between", lang.toUpperCase() === language ? "bg-tertiary dark:bg-muted hover:dark:bg-accent transition-all" : '')}
               >
-                <Image
-                  src={formatFlag(lang)}
-                  alt={lang}
-                  width={20}
-                  height={20}
-                />
-                {lang.toUpperCase()}
+                <div className="flex items-center gap-2">
+                  <Image
+                    src={formatFlag(lang)}
+                    alt={lang}
+                    width={20}
+                    height={20}
+                  />
+                  {lang.toUpperCase()}
+                </div>
 
                 {lang.toUpperCase() === language ? (
                   <CheckIcon className="h-4 w-4" />

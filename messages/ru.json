@@ -1,0 +1,23 @@
+{
+  "Home": {
+    "featuredProducts": "Featured Products"
+  },
+  "Cart": {
+    "title": "Shopping Cart",
+    "noItems": "No items added to cart."
+  },
+  "Summary": {
+    "orderSummary": "Order summary",
+    "orderTotal": "Order total",
+    "checkout": "Checkout"
+  },
+  "Product": {
+    "relatedItems": "Related Items"
+  },
+  "Info": {
+    "subcategory": "Subcategory",
+    "country": "Country",
+    "fastBuy": "⚡ Fast Buy",
+    "addToCart": "Add To Cart"
+  }
+}

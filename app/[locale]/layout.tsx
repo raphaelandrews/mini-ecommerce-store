@@ -12,7 +12,18 @@ import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "pt" }, { locale: "es" }];
+  return [
+    { locale: "en" }, 
+    { locale: "pt" }, 
+    { locale: "es" }, 
+    { locale: "cn" }, 
+    { locale: "de" }, 
+    { locale: "fr" }, 
+    { locale: "it" }, 
+    { locale: "jp" }, 
+    { locale: "ru" },
+    { locale: "sa" }, 
+  ];
 }
 
 const font = Inter({ subsets: ['latin'] })

@@ -1,11 +1,12 @@
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import { X } from "lucide-react";
 
 import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
 
-import IconButton from "@/components/ui/icon-button";
 import Currency from "@/components/ui/currency";
+import IconButton from "@/components/ui/icon-button";
 
 interface CartItemProps {
   data: Product;
@@ -14,6 +15,7 @@ interface CartItemProps {
 
 const CartItem: React.FC<CartItemProps> = ({ data, quantity }) => {
   const cart = useCart();
+  const t = useTranslations('CartItem');
 
   const onRemove = () => {
     cart.removeItem(data.id);
@@ -48,7 +50,7 @@ const CartItem: React.FC<CartItemProps> = ({ data, quantity }) => {
           </div>
           <br/>
           <div className="flex items-center gap-2 mt-4 sm:mt-0">
-            <p className="text-lg font-semibold text-secondary">Item Total:</p>
+            <p className="text-lg font-semibold text-secondary">{t('itemTotal')}</p>
             <Currency value={parseInt(data.price) * quantity} />
           </div>
         </div>

@@ -1,23 +1,54 @@
 {
   "Home": {
-    "featuredProducts": "Featured Products"
+    "featuredProducts": "Популярные товары"
   },
   "Cart": {
-    "title": "Shopping Cart",
-    "noItems": "No items added to cart."
+    "title": "Корзина",
+    "noItems": "В корзине нет товаров."
+  },
+  "CartItem": {
+    "itemTotal": "Итого товара:"
   },
   "Summary": {
-    "orderSummary": "Order summary",
-    "orderTotal": "Order total",
-    "checkout": "Checkout"
+    "orderSummary": "Сводка заказа",
+    "orderTotal": "Итого заказа",
+    "checkout": "Оформить заказ",
+    "paymentCompleted": "Оплата завершена.",
+  "somethingWentWrong": "Что-то пошло не так."
   },
   "Product": {
-    "relatedItems": "Related Items"
+    "relatedItems": "Сопутствующие товары"
   },
   "Info": {
-    "subcategory": "Subcategory",
-    "country": "Country",
-    "fastBuy": "⚡ Fast Buy",
-    "addToCart": "Add To Cart"
+    "subcategory": "Подкатегория",
+    "country": "Страна",
+    "fastBuy": "⚡ Быстрая покупка",
+    "addToCart": "Добавить в корзину"
+  },
+  "NoResults": {
+    "noResults": "Результатов не найдено."
+  },
+  "ProductCard": {
+    "fastBuy": "⚡ Быстрая покупка",
+    "addToCart": "Добавить в корзину"
+  },
+  "CommandMenu": {
+    "typeACommand": "Введите команду или искать...",
+    "noResults": "Результатов не найдено.",
+    "light": "Светлая",
+    "dark": "Темная",
+    "system": "Система"
+  },
+  "MainNav": {
+    "countries": "Страны"
+  },
+  "NavbarActions": {
+    "login": "Войти"
+  },
+  "ThemeToggle": {
+    "toggleTheme": "Сменить тему",
+    "light": "Светлая",
+    "dark": "Темная",
+    "system": "Системная"
   }
 }

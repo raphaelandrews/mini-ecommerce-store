@@ -6,10 +6,15 @@
     "title": "Carrinho de Compras",
     "noItems": "Nenhum item adicionado ao carrinho"
   },
+  "CartItem": {
+    "itemTotal": "Total do item:"
+  },
   "Summary": {
     "orderSummary": "Resumo do pedido",
     "orderTotal": "Total do pedido",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "paymentCompleted": "Pagamento concluído.",
+  "somethingWentWrong": "Algo deu errado."
   },
   "Product": {
     "relatedItems": "Items Relacionados"
@@ -19,5 +24,31 @@
     "country": "País",
     "fastBuy": "⚡ Compra Rápida",
     "addToCart": "Adicionar ao carrinho"
+  },
+  "NoResults": {
+    "noResults": "Nenhum resultado encontrado."
+  },
+  "ProductCard": {
+    "fastBuy": "⚡ Compra Rápida",
+    "addToCart": "Adicionar ao Carrinho"
+  },
+  "CommandMenu": {
+    "typeACommand": "Digite um comando ou pesquise...",
+    "noResults": "Nenhum resultado encontrado.",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
+  },
+  "MainNav": {
+    "countries": "Países"
+  },
+  "NavbarActions": {
+    "login": "Login"
+  },
+  "ThemeToggle": {
+    "toggleTheme": "Alternar Tema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "system": "Sistema"
   }
 }

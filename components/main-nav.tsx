@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from 'next-intl';
 
 import { cn } from "@/lib/utils";
 import { Category, Country, Subcategory } from "@/types";
@@ -29,6 +30,7 @@ const MainNav: React.FC<MainNavProps> = ({
   countries
 }) => {
   const pathname = usePathname();
+  const t = useTranslations('MainNav');
 
   const routes = categories.map((route) => ({
     href: `/category/${route.id}`,
@@ -88,7 +90,7 @@ const MainNav: React.FC<MainNavProps> = ({
                 className="flex gap-2"
               >
                 <span>🌎</span>
-                Countries
+                {t('countries')}
               </Link>
             </NavigationMenuTrigger>
             <NavigationMenuContent>

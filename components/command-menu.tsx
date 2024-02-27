@@ -2,8 +2,9 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { useTheme } from "next-themes";
 import { usePathname, useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
+import { useTranslations } from 'next-intl';
 import {
     CheckIcon,
     CommandIcon,
@@ -13,7 +14,7 @@ import {
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { formatFlag } from "@/utils/format-flag";
+import { formatLang, formatLangFlag } from "@/utils/format-lang";
 import { locales } from "@/i18n";
 
 import { Button } from "@/components/ui/button";
@@ -35,6 +36,7 @@ const CommandMenu = () => {
         const pathnameParts = pathname.split('/');
         return pathnameParts[1].toUpperCase();
     });
+    const t = useTranslations('CommandMenu');
 
     const [isMounted, setIsMounted] = React.useState(false);
 
@@ -81,9 +83,9 @@ const CommandMenu = () => {
             </Button>
 
             <CommandDialog open={open} onOpenChange={setOpen}>
-                <CommandInput placeholder="Type a command or search..." />
+                <CommandInput placeholder={t('typeACommand')} />
                 <CommandList>
-                    <CommandEmpty>No results found.</CommandEmpty>
+                    <CommandEmpty>{t('noResults')}</CommandEmpty>
                     <CommandGroup heading="Language">
                         {locales.map((lang) => (
                             <CommandItem
@@ -92,12 +94,12 @@ const CommandMenu = () => {
                                 className={cn("flex items-center gap-2", lang.toUpperCase() === language ? "bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : '')}
                             >
                                 <Image
-                                    src={formatFlag(lang)}
+                                    src={formatLangFlag(lang)}
                                     alt={lang}
                                     width={20}
                                     height={20}
                                 />
-                                {lang.toUpperCase()}
+                                {formatLang(lang)}
 
                                 {lang.toUpperCase() === language ? (
                                     <CheckIcon className="h-4 w-4" />
@@ -109,15 +111,15 @@ const CommandMenu = () => {
                     <CommandGroup heading="Theme">
                         <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
                             <SunIcon className="mr-2 h-4 w-4" />
-                            Light
+                            {t('light')}
                         </CommandItem>
                         <CommandItem onSelect={() => runCommand(() => setTheme("dark"))}>
                             <MoonIcon className="mr-2 h-4 w-4" />
-                            Dark
+                            {t('dark')}
                         </CommandItem>
                         <CommandItem onSelect={() => runCommand(() => setTheme("system"))}>
                             <LaptopIcon className="mr-2 h-4 w-4" />
-                            System
+                            {t('system')}
                         </CommandItem>
                     </CommandGroup>
                 </CommandList>
@@ -127,23 +129,3 @@ const CommandMenu = () => {
 }
 
 export default CommandMenu;
-
-interface SelectItemProps {
-    children: React.ReactNode;
-    className?: string;
-    onClick?: () => void;
-}
-
-const SelectItem = ({ children, className, onClick }: SelectItemProps) => {
-    return (
-        <div
-            className={cn(
-                "relative flex w-full cursor-pointer select-none items-center rounded-sm py-1.5 px-2 text-sm outline-none hover:text-tertiary-foreground hover:bg-tertiary focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
-                className
-            )}
-            onClick={onClick}
-        >
-            {children}
-        </div>
-    )
-};

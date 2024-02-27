@@ -1,23 +1,54 @@
 {
   "Home": {
-    "featuredProducts": "Featured Products"
+    "featuredProducts": "おすすめ商品"
   },
   "Cart": {
-    "title": "Shopping Cart",
-    "noItems": "No items added to cart."
+    "title": "ショッピングカート",
+    "noItems": "カートに商品が追加されていません。"
+  },
+  "CartItem": {
+    "itemTotal": "アイテム合計："
   },
   "Summary": {
-    "orderSummary": "Order summary",
-    "orderTotal": "Order total",
-    "checkout": "Checkout"
+    "orderSummary": "注文の要約",
+    "orderTotal": "注文合計",
+    "checkout": "チェックアウト",
+    "paymentCompleted": "支払いが完了しました。",
+  "somethingWentWrong": "何かがうまくいきませんでした。"
   },
   "Product": {
-    "relatedItems": "Related Items"
+    "relatedItems": "関連商品"
   },
   "Info": {
-    "subcategory": "Subcategory",
-    "country": "Country",
-    "fastBuy": "⚡ Fast Buy",
-    "addToCart": "Add To Cart"
+    "subcategory": "サブカテゴリ",
+    "country": "国",
+    "fastBuy": "⚡ 素早い購入",
+    "addToCart": "カートに追加"
+  },
+  "NoResults": {
+    "noResults": "結果が見つかりませんでした。"
+  },
+  "ProductCard": {
+    "fastBuy": "⚡ 素早い購入",
+    "addToCart": "カートに追加"
+  },
+  "CommandMenu": {
+    "typeACommand": "コマンドを入力するか検索してください...",
+    "noResults": "結果が見つかりませんでした。",
+    "light": "明るい",
+    "dark": "暗い",
+    "system": "システム"
+  },
+  "MainNav": {
+    "countries": "国"
+  },
+  "NavbarActions": {
+    "login": "ログイン"
+  },
+  "ThemeToggle": {
+    "toggleTheme": "テーマの切り替え",
+    "light": "明るい",
+    "dark": "暗い",
+    "system": "システム"
   }
 }

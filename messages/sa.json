@@ -1,23 +1,54 @@
 {
   "Home": {
-    "featuredProducts": "Featured Products"
+    "featuredProducts": "المنتجات المميزة"
   },
   "Cart": {
-    "title": "Shopping Cart",
-    "noItems": "No items added to cart."
+    "title": "عربة التسوق",
+    "noItems": "لم يتم إضافة أي عناصر إلى العربة."
+  },
+  "CartItem": {
+    "itemTotal": "المجموع الكلي للعنصر:"
   },
   "Summary": {
-    "orderSummary": "Order summary",
-    "orderTotal": "Order total",
-    "checkout": "Checkout"
+    "orderSummary": "ملخص الطلب",
+    "orderTotal": "مجموع الطلب",
+    "checkout": "الدفع",
+    "paymentCompleted": "تم الدفع بنجاح.",
+    "somethingWentWrong": "حدث خطأ ما."
   },
   "Product": {
-    "relatedItems": "Related Items"
+    "relatedItems": "المنتجات ذات الصلة"
   },
   "Info": {
-    "subcategory": "Subcategory",
-    "country": "Country",
-    "fastBuy": "⚡ Fast Buy",
-    "addToCart": "Add To Cart"
+    "subcategory": "الفئة الفرعية",
+    "country": "البلد",
+    "fastBuy": "⚡ شراء سريع",
+    "addToCart": "أضف إلى العربة"
+  },
+  "NoResults": {
+    "noResults": "لم يتم العثور على نتائج."
+  },
+  "ProductCard": {
+    "fastBuy": "⚡ شراء سريع",
+    "addToCart": "أضف إلى العربة"
+  },
+  "CommandMenu": {
+    "typeACommand": "اكتب أمرًا أو ابحث...",
+    "noResults": "لم يتم العثور على نتائج.",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
+  },
+  "MainNav": {
+    "countries": "البلدان"
+  },
+  "NavbarActions": {
+    "login": "تسجيل الدخول"
+  },
+  "ThemeToggle": {
+    "toggleTheme": "تبديل السمة",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام"
   }
 }

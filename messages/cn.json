@@ -1,23 +1,54 @@
 {
   "Home": {
-    "featuredProducts": "Featured Products"
+    "featuredProducts": "精选产品"
   },
   "Cart": {
-    "title": "Shopping Cart",
-    "noItems": "No items added to cart."
+    "title": "购物车",
+    "noItems": "购物车中没有商品。"
+  },
+  "CartItem": {
+    "itemTotal": "商品总计："
   },
   "Summary": {
-    "orderSummary": "Order summary",
-    "orderTotal": "Order total",
-    "checkout": "Checkout"
+    "orderSummary": "订单摘要",
+    "orderTotal": "订单总额",
+    "checkout": "结账",
+    "paymentCompleted": "支付完成。",
+    "somethingWentWrong": "出了些问题。"
   },
   "Product": {
-    "relatedItems": "Related Items"
+    "relatedItems": "相关产品"
   },
   "Info": {
-    "subcategory": "Subcategory",
-    "country": "Country",
-    "fastBuy": "⚡ Fast Buy",
-    "addToCart": "Add To Cart"
+    "subcategory": "子类别",
+    "country": "国家",
+    "fastBuy": "⚡ 快速购买",
+    "addToCart": "加入购物车"
+  },
+  "NoResults": {
+    "noResults": "未找到结果。"
+  },
+  "ProductCard": {
+    "fastBuy": "⚡ 快速购买",
+    "addToCart": "加入购物车"
+  },
+  "CommandMenu": {
+    "typeACommand": "输入命令或搜索...",
+    "noResults": "未找到结果。",
+    "light": "明亮",
+    "dark": "黑暗",
+    "system": "系统"
+  },
+  "MainNav": {
+    "countries": "国家"
+  },
+  "NavbarActions": {
+    "login": "登录"
+  },
+  "ThemeToggle": {
+    "toggleTheme": "切换主题",
+    "light": "明亮",
+    "dark": "黑暗",
+    "system": "系统"
   }
 }

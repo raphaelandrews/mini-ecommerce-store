@@ -21,13 +21,14 @@ const Summary = () => {
 
   useEffect(() => {
     if (searchParams.get('success')) {
-      toast.success('Payment completed.');
+      toast.success(t('paymentCompleted'));
       removeAll();
     }
 
     if (searchParams.get('canceled')) {
-      toast.error('Something went wrong.');
+      toast.error(t('somethingWentWrong'));
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, removeAll]);
 
   const totalPrice = items.reduce((total, item) => {

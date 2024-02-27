@@ -3,13 +3,18 @@
     "featuredProducts": "Featured Products"
   },
   "Cart": {
-    "title": "Shopping Cart",
+    "shoppingCart": "Shopping Cart",
     "noItems": "No items added to cart."
+  },
+  "CartItem": {
+    "itemTotal": "Item Total:"
   },
   "Summary": {
     "orderSummary": "Order summary",
     "orderTotal": "Order total",
-    "checkout": "Checkout"
+    "checkout": "Checkout",
+    "paymentCompleted": "Payment completed.",
+    "somethingWentWrong": "Something went wrong."
   },
   "Product": {
     "relatedItems": "Related Items"
@@ -19,5 +24,31 @@
     "country": "Country",
     "fastBuy": "⚡ Fast Buy",
     "addToCart": "Add To Cart"
+  },
+  "NoResults": {
+    "noResults": "No results found."
+  },
+  "ProductCard": {
+    "fastBuy": "⚡ Fast Buy",
+    "addToCart": "Add To Cart"
+  },
+  "CommandMenu": {
+    "typeACommand": "Type a command or search...",
+    "noResults": "No results found.",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "MainNav": {
+    "countries": "Countries"
+  },
+  "NavbarActions": {
+    "login": "Login"
+  },
+  "ThemeToggle": {
+    "toggleTheme": "Toggle Theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
   }
 }

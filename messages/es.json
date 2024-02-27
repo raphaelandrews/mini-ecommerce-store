@@ -1,23 +1,55 @@
 {
     "Home": {
-        "featuredProducts": "Productos destacados"
+      "featuredProducts": "Productos destacados"
     },
     "Cart": {
-        "title": "Carrito de compras",
-        "noItems": "Ningún artículo agregado al carrito"
+      "title": "Carrito",
+      "noItems": "No hay elementos añadidos al carrito."
     },
+    "CartItem": {
+        "itemTotal": "Total del artículo:"
+      },
     "Summary": {
-        "orderSummary": "Resumen del pedido",
-        "orderTotal": "Total del pedido",
-        "checkout": "Pagar"
+      "orderSummary": "Resumen del pedido",
+      "orderTotal": "Total del pedido",
+      "checkout": "Pagar",
+      "paymentCompleted": "Pago completado.",
+      "somethingWentWrong": "Algo salió mal."
     },
     "Product": {
-        "relatedItems": "Productos relacionados"
+      "relatedItems": "Productos relacionados"
     },
     "Info": {
-        "subcategory": "Subcategoría",
-        "country": "País",
-        "fastBuy": "⚡ Compra rápida",
-        "addToCart": "Agregar al carrito"
+      "subcategory": "Subcategoría",
+      "country": "País",
+      "fastBuy": "⚡ Compra rápida",
+      "addToCart": "Agregar al carrito"
+    },
+    "NoResults": {
+      "noResults": "No se encontraron resultados."
+    },
+    "ProductCard": {
+      "fastBuy": "⚡ Compra rápida",
+      "addToCart": "Agregar al carrito"
+    },
+    "CommandMenu": {
+      "typeACommand": "Escriba un comando o busque...",
+      "noResults": "No se encontraron resultados.",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
+    },
+    "MainNav": {
+      "countries": "Países"
+    },
+    "NavbarActions": {
+      "login": "Iniciar sesión"
+    },
+    "ThemeToggle": {
+      "toggleTheme": "Cambiar tema",
+      "light": "Claro",
+      "dark": "Oscuro",
+      "system": "Sistema"
     }
-}
+  }
+  

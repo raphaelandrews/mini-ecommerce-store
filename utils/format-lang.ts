@@ -9,11 +9,11 @@ import ru from "@/public/flags/RU.svg";
 import sa from "@/public/flags/SA.svg";
 import us from "@/public/flags/US.svg";
 
-interface Flags {
+interface Langs {
     [key: string]: any;
 }
 
-const flags: Flags = {
+const langsFlags: Langs = {
     "cn": cn,
     "de": de,
     "en": us,
@@ -26,6 +26,23 @@ const flags: Flags = {
     "sa": sa,
 };
 
-export function formatFlag(flag: string) {
-    return flags[flag] || '';
+export function formatLangFlag(lang: string) {
+    return langsFlags[lang] || '';
+}
+
+const langs: Langs = {
+    "cn": "中国",
+    "de": "DE",
+    "en": "US",
+    "es": "ES",
+    "fr": "FR",
+    "it": "IT",
+    "jp": "日本",
+    "pt": "BR",
+    "ru": "РФ",
+    "sa": "الم"
+};
+
+export function formatLang(lang: string) {
+    return langs[lang] || lang;
 }

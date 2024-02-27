@@ -1,19 +1,20 @@
 "use client";
 
+import { MouseEventHandler, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { MouseEventHandler, useState } from "react";
+import { useTranslations } from 'next-intl';
 import { useAuth } from "@clerk/nextjs";
 import { Expand, ShoppingCart } from "lucide-react";
 import axios from "axios";
 
 import useCart from "@/hooks/use-cart";
+import usePreviewModal from "@/hooks/use-preview-modal";
 import { Product } from "@/types";
 
 import Currency from "@/components/ui/currency";
 import IconButton from "@/components/ui/icon-button";
 import { Button } from "@/components/ui/button";
-import usePreviewModal from "@/hooks/use-preview-modal";
 
 interface ProductCard {
   data: Product
@@ -25,8 +26,9 @@ const ProductCard: React.FC<ProductCard> = ({
   const previewModal = usePreviewModal();
   const cart = useCart();
   const router = useRouter();
-  const { userId} = useAuth();
+  const { userId } = useAuth();
   const [quantity, setQuantity] = useState(1);
+  const t = useTranslations('ProductCard');
 
   const increaseQuantity = () => {
     setQuantity(quantity + 1);
@@ -69,7 +71,7 @@ const ProductCard: React.FC<ProductCard> = ({
       <div onClick={handleClick} className="aspect-square rounded-xl bg-gray-100 relative cursor-pointer">
         <Image
           src={data.images?.[0]?.url}
-          alt=""
+          alt={data.name}
           fill
           className="aspect-square object-cover rounded-md"
         />
@@ -112,10 +114,10 @@ const ProductCard: React.FC<ProductCard> = ({
       </div>
       <div className="grid grid-rows-2 lg:grid-rows-1 lg:grid-cols-2 gap-3">
         <Button onClick={onCheckout}>
-          ⚡ Fast Buy
+          {t('fastBuy')}
         </Button>
         <Button onClick={onAddToCart}>
-          Add To Cart
+          {t('addToCart')}
         </Button>
       </div>
     </div>

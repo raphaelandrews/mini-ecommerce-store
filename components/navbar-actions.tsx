@@ -3,12 +3,13 @@
 import { ReactNode, useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { useTranslations } from 'next-intl';
 import { UserButton } from "@clerk/nextjs";
 import { CheckIcon, ShoppingCartIcon } from "lucide-react";
 
 import useCart from "@/hooks/use-cart";
 import { cn } from "@/lib/utils";
-import { formatFlag } from "@/utils/format-flag";
+import { formatLang, formatLangFlag } from "@/utils/format-lang";
 import { locales } from "@/i18n";
 
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,7 @@ const NavbarActions = ({ userId }: { userId: any }) => {
     const pathnameParts = pathname.split('/');
     return pathnameParts[1].toUpperCase();
   });
+  const t = useTranslations('NavbarActions');
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -63,16 +65,16 @@ const NavbarActions = ({ userId }: { userId: any }) => {
               <SelectItem
                 key={lang}
                 onClick={() => handleLanguageChange(lang)}
-                className={cn("flex justify-between", lang.toUpperCase() === language ? "bg-tertiary dark:bg-muted hover:dark:bg-accent transition-all" : '')}
+                className={cn("flex justify-between", lang.toUpperCase() === language ? "bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : '')}
               >
                 <div className="flex items-center gap-2">
                   <Image
-                    src={formatFlag(lang)}
+                    src={formatLangFlag(lang)}
                     alt={lang}
                     width={20}
                     height={20}
                   />
-                  {lang.toUpperCase()}
+                  {formatLang(lang)}
                 </div>
 
                 {lang.toUpperCase() === language ? (
@@ -105,13 +107,13 @@ const NavbarActions = ({ userId }: { userId: any }) => {
           appearance={{
             elements: {
               userButtonAvatarBox:
-                "w-10 h-10",
+                "w-10 h-10 rounded-md",
             },
           }}
         />
       ) : (
         <Button onClick={() => router.push('/sign-in')}>
-          Login
+           {t('login')}
         </Button>
       )}
     </div>

@@ -6,8 +6,11 @@ import { UserButton } from "@clerk/nextjs";
 import { CheckIcon, ShoppingCartIcon } from "lucide-react";
 
 import useCart from "@/hooks/use-cart";
+import { cn } from "@/lib/utils";
+import { locales } from "@/i18n";
 
 import { Button } from "@/components/ui/button";
+import CommandMenu from "@/components/command-menu";
 import {
   Select,
   SelectContent,
@@ -15,8 +18,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { locales } from "@/i18n";
-import { cn } from "@/lib/utils";
 
 const NavbarActions = ({ userId }: { userId: any }) => {
   const pathname = usePathname();
@@ -50,38 +51,43 @@ const NavbarActions = ({ userId }: { userId: any }) => {
 
   return (
     <div className="ml-auto flex items-center gap-x-4">
-      <Select>
-        <SelectTrigger className="w-20">
-          <SelectValue placeholder={language} />
-        </SelectTrigger>
-        <SelectContent>
-          {locales.map((lang) => (
-            <SelectItem
-              key={lang}
-              onClick={() => handleLanguageChange(lang)}
-              className="flex items-center gap-2"
-            >
-              {lang.toUpperCase() === language ? (
-                <CheckIcon className="h-4 w-4" />
-              ) : <div className="h-4 w-4" />}
-              {lang.toUpperCase()}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
+      <div className="hidden md:flex items-center gap-x-4">
+        <Select>
+          <SelectTrigger className="w-20">
+            <SelectValue placeholder={language} />
+          </SelectTrigger>
+          <SelectContent>
+            {locales.map((lang) => (
+              <SelectItem
+                key={lang}
+                onClick={() => handleLanguageChange(lang)}
+                className="flex items-center gap-2"
+              >
+                {lang.toUpperCase() === language ? (
+                  <CheckIcon className="h-4 w-4" />
+                ) : <div className="h-4 w-4" />}
+                {lang.toUpperCase()}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+
+        <ThemeToggle />
+      </div>
 
       <Button
-        onClick={() => router.push('/cart')}
-        variant='tertiary'
-        className="relative gap-3 px-2.5"
-      >
-        <ShoppingCartIcon size={20} />
-        <span className="absolute flex items-center justify-center -top-1/4 -right-1/4 font-medium text-accent-foreground w-6 h-6 bg-accent rounded">
-          {cart.items.reduce((total, currentItem) => total + currentItem.quantity, 0)}
-        </span>
-      </Button>
+          onClick={() => router.push('/cart')}
+          variant='tertiary'
+          className="relative gap-3 px-2.5"
+        >
+          <ShoppingCartIcon size={20} />
+          <span className="absolute flex items-center justify-center -top-1/4 -right-1/4 font-medium text-accent-foreground w-6 h-6 bg-accent rounded">
+            {cart.items.reduce((total, currentItem) => total + currentItem.quantity, 0)}
+          </span>
+        </Button>
 
-      <ThemeToggle />
+      <CommandMenu />
+
       {userId ? (
         <UserButton
           afterSignOutUrl="/"

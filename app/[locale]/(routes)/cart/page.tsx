@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
-
+import {unstable_setRequestLocale} from 'next-intl/server';
 
 import useCart from '@/hooks/use-cart';
 
@@ -12,7 +12,8 @@ import CartItem from './components/cart-item';
 
 export const revalidate = 0;
 
-const CartPage = () => {
+const CartPage = ({ params: { locale } }: { params: { locale: string } }) => {
+  unstable_setRequestLocale(locale);
   const [isMounted, setIsMounted] = useState(false);
   const cart = useCart();
   const t = useTranslations('Cart');

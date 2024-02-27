@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import {unstable_setRequestLocale} from 'next-intl/server';

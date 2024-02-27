@@ -15,7 +15,7 @@ export default authMiddleware({
   },
  
   // Ensure that locale specific sign-in pages are public
-  publicRoutes: ["/", "en", "es", "pt", "cn", "de", "fr", "it", "jp", "ru", "sa",'/:locale', "/:locale/sign-in", "/:path*","/api/:path*", "/api/uploadthing"],
+  publicRoutes: ["/", "en", "es", "pt", "cn", "de", "fr", "it", "jp", "ru", "sa","/:locale", "/:locale/sign-in", "/:locale/sign-up", "/:path*","/api/:path*", "/api/uploadthing"],
 });
  
 export const config = {

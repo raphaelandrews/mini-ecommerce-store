@@ -8,9 +8,6 @@ import ModalProvider from '@/providers/modal-provider/modal-provider';
 import ToastProvider from '@/providers/toast-provider';
 import { ThemeProvider } from '@/providers/theme-provider';
 
-import CategoriesList from '@/components/categories-list'
-import Footer from '@/components/footer';
-import Navbar from '@/components/navbar';
 import { locales } from '@/i18n';
 
 export function generateStaticParams() {
@@ -46,12 +43,7 @@ export default function RootLayout({
             >
               <ToastProvider />
               <ModalProvider />
-              <header>
-                <Navbar />
-              </header>
-              <CategoriesList />
               {children}
-              <Footer />
             </ThemeProvider>
           </body>
         </html>

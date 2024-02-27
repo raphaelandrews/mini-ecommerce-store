@@ -1,6 +1,5 @@
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
-import {unstable_setRequestLocale} from 'next-intl/server';
 import { ClerkProvider } from '@clerk/nextjs';
 
 import './globals.css'
@@ -11,10 +10,20 @@ import { ThemeProvider } from '@/providers/theme-provider';
 import CategoriesList from '@/components/categories-list'
 import Footer from '@/components/footer';
 import Navbar from '@/components/navbar';
-import { locales } from '@/i18n';
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return [
+    { locale: "en" }, 
+    { locale: "pt" }, 
+    { locale: "es" }, 
+    { locale: "cn" }, 
+    { locale: "de" }, 
+    { locale: "fr" }, 
+    { locale: "it" }, 
+    { locale: "jp" }, 
+    { locale: "ru" },
+    { locale: "sa" }, 
+  ];
 }
 
 const font = Inter({ subsets: ['latin'] })
@@ -31,7 +40,6 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  unstable_setRequestLocale(locale);
   const messages = useMessages();
 
   return (

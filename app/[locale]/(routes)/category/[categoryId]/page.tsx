@@ -22,11 +22,11 @@ interface CategoryPageProps {
   }
 }
 
-const CategoryPage: React.FC<CategoryPageProps> = async ({ 
-  params, 
+const CategoryPage: React.FC<CategoryPageProps> = async ({
+  params,
   searchParams
 }) => {
-  const products = await getProducts({ 
+  const products = await getProducts({
     countryId: searchParams.countryId,
     subcategoryId: searchParams.subcategoryId,
   });
@@ -36,8 +36,8 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
 
   return (
     <Container>
-        <main className="min-h-screen">
-        <Billboard 
+      <main className="min-h-screen">
+        <Billboard
           data={category.billboard}
         />
         <div className="pb-24">
@@ -45,13 +45,13 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
             <MobileFilters subcategories={subcategories} countries={countries} />
             <div className="hidden lg:block">
               <Filter
-                valueKey="subcategoryId" 
-                name="Subcategories" 
+                valueKey="subcategoryId"
+                name="Subcategories"
                 data={subcategories}
               />
-              <Filter 
-                valueKey="countryId" 
-                name="Countries" 
+              <Filter
+                valueKey="countryId"
+                name="Countries"
                 data={countries}
               />
             </div>
@@ -65,8 +65,8 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
             </div>
           </div>
         </div>
-    </main>
-      </Container>
+      </main>
+    </Container>
   );
 };
 

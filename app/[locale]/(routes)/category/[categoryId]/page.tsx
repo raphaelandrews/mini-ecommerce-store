@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import getProducts from "@/actions/get-products";
 import getCategory from '@/actions/get-category';
 import getSubcategories from '@/actions/get-subcategories';

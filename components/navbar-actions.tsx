@@ -3,8 +3,6 @@
 import { ReactNode, useEffect, useState } from "react";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import { useTranslations } from 'next-intl';
-import { UserButton } from "@clerk/nextjs";
 import { CheckIcon, ShoppingCartIcon } from "lucide-react";
 
 import useCart from "@/hooks/use-cart";
@@ -22,13 +20,12 @@ import {
 } from "@/components/ui/select";
 import { ThemeToggle } from "@/components/theme-toggle";
 
-const NavbarActions = ({ userId }: { userId: any }) => {
+const NavbarActions = () => {
   const pathname = usePathname();
   const [language, setLanguage] = useState<string>(() => {
     const pathnameParts = pathname.split('/');
     return pathnameParts[1].toUpperCase();
   });
-  const t = useTranslations('NavbarActions');
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -110,22 +107,6 @@ const NavbarActions = ({ userId }: { userId: any }) => {
       </Button>
 
       <CommandMenu />
-
-      {userId ? (
-        <UserButton
-          afterSignOutUrl="/"
-          appearance={{
-            elements: {
-              userButtonAvatarBox:
-                "w-10 h-10 rounded-md",
-            },
-          }}
-        />
-      ) : (
-        <Button onClick={() => router.push('/sign-in')}>
-          {t('login')}
-        </Button>
-      )}
     </div>
   );
 }

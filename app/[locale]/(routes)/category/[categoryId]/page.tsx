@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import getProducts from "@/actions/get-products";

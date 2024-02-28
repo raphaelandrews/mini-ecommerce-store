@@ -101,7 +101,9 @@ const ProductCard: React.FC<ProductCard> = ({
         </div>
       </div>
       <div onClick={handleClick} className="cursor-pointer">
-        <p className="font-semibold text-lg">{data.name}</p>
+        <p className="font-semibold text-lg min-h-[3.5rem] line-clamp-2 webkit-line-clamp-2">
+          {data.name}
+        </p>
         <p className="text-sm text-muted">{data.subcategory?.name}</p>
       </div>
       <div className="flex items-center justify-between">

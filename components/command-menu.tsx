@@ -86,7 +86,7 @@ const CommandMenu = () => {
                 <CommandInput placeholder={t('typeACommand')} />
                 <CommandList>
                     <CommandEmpty>{t('noResults')}</CommandEmpty>
-                    <CommandGroup heading={t('Language')}>
+                    <CommandGroup heading={t('language')}>
                         {locales.map((lang) => (
                             <CommandItem
                                 key={lang}

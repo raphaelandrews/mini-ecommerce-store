@@ -5,7 +5,7 @@ export interface Product {
   isFeatured: boolean;
   subcategory: Subcategory;
   country: Country;
-  images: Image[]
+  images: Image[];
 };
 
 export interface Image {
@@ -35,3 +35,24 @@ export interface Country {
   id: string;
   name: string;
 };
+
+export interface Order {
+  id: string;
+  storeId: string;
+  orderItems: OrderItem[];
+  clientId: string;
+  isPaid: boolean;
+  phone: string;
+  address: string;
+  createdAt: Date;
+}
+
+export interface OrderItem {
+  id: string;
+  orderId: string;
+  order: Order;
+  productId: string;
+  product: Product;
+  price: string;
+  quantity: number;
+}

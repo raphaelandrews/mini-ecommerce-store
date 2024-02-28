@@ -1,5 +1,3 @@
-"use client";
-
 import { MouseEventHandler, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -28,6 +26,7 @@ const ProductCard: React.FC<ProductCard> = ({
   const router = useRouter();
   const { userId } = useAuth();
   const [quantity, setQuantity] = useState(1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const t = useTranslations('ProductCard');
 
   const increaseQuantity = () => {
@@ -66,11 +65,24 @@ const ProductCard: React.FC<ProductCard> = ({
     window.location = response.data.url;
   };
 
+  const handleMouseEnter = () => {
+    setCurrentImageIndex(1);
+  };
+
+  const handleMouseLeave = () => {
+    setCurrentImageIndex(0);
+  };
+
   return (
     <div className="group p-3 space-y-4 bg-card rounded-xl border dark:border-2">
-      <div onClick={handleClick} className="aspect-square rounded-xl bg-gray-100 relative cursor-pointer">
+      <div
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        className="aspect-square rounded-xl bg-gray-100 relative cursor-pointer"
+      >
         <Image
-          src={data.images?.[0]?.url}
+          src={data.images[currentImageIndex]?.url}
           alt={data.name}
           fill
           className="aspect-square object-cover rounded-md"

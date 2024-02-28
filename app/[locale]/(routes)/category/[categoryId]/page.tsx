@@ -1,4 +1,4 @@
-import {getTranslations} from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
 import getProducts from "@/actions/get-products";
 import getCategory from '@/actions/get-category';
@@ -17,6 +17,7 @@ export const revalidate = 0;
 interface CategoryPageProps {
   params: {
     categoryId: string;
+    locale: any
   },
   searchParams: {
     countryId: string;
@@ -28,13 +29,14 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   params,
   searchParams
 }) => {
-  const products = await getProducts({
+ const products = await getProducts({
     countryId: searchParams.countryId,
     subcategoryId: searchParams.subcategoryId,
   });
   const subcategories = await getSubcategories();
   const countries = await getCountries();
   const category = await getCategory(params.categoryId);
+  unstable_setRequestLocale(params.locale)
   const t = await getTranslations('CategoryPage');
 
   return (

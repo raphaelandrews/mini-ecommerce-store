@@ -1,3 +1,5 @@
+import {getTranslations} from 'next-intl/server';
+
 import getProducts from "@/actions/get-products";
 import getCategory from '@/actions/get-category';
 import getSubcategories from '@/actions/get-subcategories';
@@ -33,6 +35,7 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
   const subcategories = await getSubcategories();
   const countries = await getCountries();
   const category = await getCategory(params.categoryId);
+  const t = await getTranslations('CategoryPage');
 
   return (
     <Container>
@@ -46,12 +49,12 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
             <div className="hidden lg:block">
               <Filter
                 valueKey="subcategoryId"
-                name="Subcategories"
+                name={t('subcategories')}
                 data={subcategories}
               />
               <Filter
                 valueKey="countryId"
-                name="Countries"
+                name={t('countries')}
                 data={countries}
               />
             </div>

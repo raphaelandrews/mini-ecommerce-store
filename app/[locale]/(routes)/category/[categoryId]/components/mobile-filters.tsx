@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, X } from "lucide-react";
+import {useTranslations} from 'next-intl';
 import { Dialog } from "@headlessui/react";
+import { Plus, X } from "lucide-react";
 
 import IconButton from "@/components/ui/icon-button";
 import { Button } from "@/components/ui/button";
@@ -20,6 +21,7 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
   countries
 }) => {
   const [open, setOpen] = useState(false);
+  const t = useTranslations('CategoryPage');
 
   const onOpen = () => setOpen(true);
   const onClose = () => setOpen(false);
@@ -47,16 +49,16 @@ const MobileFilters: React.FC<MobileFiltersProps> = ({
             <div className="flex items-center justify-end px-4">
               <IconButton icon={<X size={15} />} onClick={onClose} />
             </div>
-
+            
             <div className="p-4">
               <Filter
                 valueKey="subcategoryId"
-                name="Subcategories"
+                name={t('subcategories')}
                 data={subcategories}
               />
               <Filter
                 valueKey="countryId"
-                name="Countries"
+                name={t('countries')}
                 data={countries}
               />
             </div>

@@ -35,6 +35,8 @@
   "CommandMenu": {
     "typeACommand": "输入命令或搜索...",
     "noResults": "未找到结果。",
+    "language": "语言",
+    "theme": "主题",
     "light": "明亮",
     "dark": "黑暗",
     "system": "系统"
@@ -50,5 +52,9 @@
     "light": "明亮",
     "dark": "黑暗",
     "system": "系统"
+  },
+  "CategoryPage": {
+    "subcategries": "子类别",
+    "countries": "国家"
   }
 }

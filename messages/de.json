@@ -35,6 +35,8 @@
   "CommandMenu": {
     "typeACommand": "Befehl eingeben oder suchen...",
     "noResults": "Keine Ergebnisse gefunden.",
+    "language": "Sprache",
+    "theme": "Thema",
     "light": "Hell",
     "dark": "Dunkel",
     "system": "System"
@@ -50,5 +52,9 @@
     "light": "Hell",
     "dark": "Dunkel",
     "system": "System"
-  }
+  },
+  "CategoryPage": {
+    "subcategries": "Unterkategorien",
+    "countries": "Länder"
+  }  
 }

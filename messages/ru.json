@@ -14,7 +14,7 @@
     "orderTotal": "Итого заказа",
     "checkout": "Оформить заказ",
     "paymentCompleted": "Оплата завершена.",
-  "somethingWentWrong": "Что-то пошло не так."
+    "somethingWentWrong": "Что-то пошло не так."
   },
   "Product": {
     "relatedItems": "Сопутствующие товары"
@@ -35,6 +35,8 @@
   "CommandMenu": {
     "typeACommand": "Введите команду или искать...",
     "noResults": "Результатов не найдено.",
+    "language": "Язык",
+    "theme": "Тема",
     "light": "Светлая",
     "dark": "Темная",
     "system": "Система"
@@ -50,5 +52,9 @@
     "light": "Светлая",
     "dark": "Темная",
     "system": "Системная"
+  },
+  "CategoryPage": {
+    "subcategries": "Подкатегории",
+    "countries": "Страны"
   }
 }

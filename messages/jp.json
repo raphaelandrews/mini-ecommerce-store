@@ -35,6 +35,8 @@
   "CommandMenu": {
     "typeACommand": "コマンドを入力するか検索してください...",
     "noResults": "結果が見つかりませんでした。",
+    "language": "言語",
+    "theme": "テーマ",
     "light": "明るい",
     "dark": "暗い",
     "system": "システム"
@@ -50,5 +52,9 @@
     "light": "明るい",
     "dark": "暗い",
     "system": "システム"
+  },
+  "CategoryPage": {
+    "subcategries": "サブカテゴリー",
+    "countries": "国"
   }
 }

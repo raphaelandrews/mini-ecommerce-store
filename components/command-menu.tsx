@@ -86,7 +86,7 @@ const CommandMenu = () => {
                 <CommandInput placeholder={t('typeACommand')} />
                 <CommandList>
                     <CommandEmpty>{t('noResults')}</CommandEmpty>
-                    <CommandGroup heading="Language">
+                    <CommandGroup heading={t('Language')}>
                         {locales.map((lang) => (
                             <CommandItem
                                 key={lang}
@@ -108,7 +108,7 @@ const CommandMenu = () => {
                         ))}
                     </CommandGroup>
                     <CommandSeparator />
-                    <CommandGroup heading="Theme">
+                    <CommandGroup heading={t('theme')}>
                         <CommandItem onSelect={() => runCommand(() => setTheme("light"))}>
                             <SunIcon className="mr-2 h-4 w-4" />
                             {t('light')}

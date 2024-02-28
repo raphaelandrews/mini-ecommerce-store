@@ -35,6 +35,8 @@
   "CommandMenu": {
     "typeACommand": "Tapez une commande ou recherchez...",
     "noResults": "Aucun résultat trouvé.",
+    "language": "Langue",
+    "theme": "Thème",
     "light": "Clair",
     "dark": "Sombre",
     "system": "Système"
@@ -50,5 +52,9 @@
     "light": "Clair",
     "dark": "Sombre",
     "system": "Système"
+  },
+  "CategoryPage": {
+    "subcategries": "Sous-catégories",
+    "countries": "Pays"
   }
 }

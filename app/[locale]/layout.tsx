@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
 import {unstable_setRequestLocale} from 'next-intl/server';
@@ -9,6 +10,7 @@ import ToastProvider from '@/providers/toast-provider';
 import { ThemeProvider } from '@/providers/theme-provider';
 
 import { locales } from '@/i18n';
+import { siteConfig } from '@/config/site';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -16,10 +18,45 @@ export function generateStaticParams() {
 
 const font = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Store',
-  description: 'Store - The place for all your purchases.',
-}
+export const metadata:Metadata = {
+  metadataBase: new URL('https://peach-mango.vercel.app'),
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: [
+    'Imported Products',
+    'Soda',
+    'Coffee',
+  ],
+  authors: [
+    {
+      name: 'Raphael Andrews',
+      url: 'https://ndrws.dev'
+    }
+  ],
+  creator: 'Raphael Andrews',
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+};
 
 export default function RootLayout({
   children,

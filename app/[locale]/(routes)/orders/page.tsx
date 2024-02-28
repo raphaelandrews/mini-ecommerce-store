@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth, clerkClient } from "@clerk/nextjs";
 import getOrders from "@/actions/get-orders";
 import { OrderClient } from "./components/client";
 import { OrderColumn } from "./components/columns";
@@ -14,16 +14,23 @@ const OrdersPage = async () => {
 
   const orders: Order[] = await getOrders(userId);
 
-  const ordersData: OrderColumn[] = orders.map(order => {
+  const ordersDataPromise: Promise<OrderColumn[]> = Promise.all(orders.map(async order => {
     const totalQuantity = order.orderItems.reduce((total, orderItem) => total + orderItem.quantity, 0);
     const totalPrice = order.orderItems.reduce((total, orderItem) => total + (orderItem.quantity * Number(orderItem.price)), 0);
-
+  
+    const user = await clerkClient.users.getUser(order.clientId);
+    const { firstName, lastName } = user;
+    const fullName = `${firstName} ${lastName}`;
+  
     return {
       order,
       totalQuantity,
-      totalPrice
+      totalPrice,
+      fullName,
     };
-  });
+  }));
+  
+  const ordersData: OrderColumn[] = await ordersDataPromise;
 
   return (
     <Container>

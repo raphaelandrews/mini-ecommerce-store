@@ -11,6 +11,7 @@ export type OrderColumn = {
   order: Order;
   totalQuantity: number; 
   totalPrice: number; 
+  fullName: string;
 }
 
 export const columns: ColumnDef<OrderColumn>[] = [
@@ -31,6 +32,15 @@ export const columns: ColumnDef<OrderColumn>[] = [
         '🔵'
       )
     },
+  },
+  {
+    accessorKey: "orderItem.clientId",
+    header: "User ID",
+    cell: ({ row }) => (
+      <p key={row.original.fullName}>
+        {row.original.fullName}
+      </p>
+    )
   },
   {
     accessorKey: "order.phone",

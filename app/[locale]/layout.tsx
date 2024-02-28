@@ -44,6 +44,13 @@ export const metadata:Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
+    images: [
+      {
+        url: `${siteConfig.url}/og/og.jpg`,
+        width: 1920,
+        height: 1080,
+      },
+    ],
   },
   robots: {
     index: true,

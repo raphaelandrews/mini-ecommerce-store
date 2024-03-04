@@ -25,16 +25,25 @@ const CategoryPage: React.FC<CategoryPageProps> = async ({
     countryId: searchParams.countryId,
     subcategoryId: searchParams.subcategoryId,
   });
-  const subcategories = await getSubcategories();
   const countries = await getCountries();
   const category = await getCategory(params.categoryId);
 
+  let categoryProducts = category.subcategories.flatMap(subcategory => subcategory.products);
+
+  if (searchParams.subcategoryId) {
+    categoryProducts = categoryProducts.filter(product => product.subcategory.id === searchParams.subcategoryId);
+  }
+
+  if (searchParams.countryId) {
+    categoryProducts = categoryProducts.filter(product => product.country.id === searchParams.countryId);
+  }
+
   return (
     <CategoryPageClient
-      category={category }
+      category={category}
       countries={countries}
-      products={products}
-      subcategories={subcategories}
+      products={categoryProducts}
+      subcategories={category.subcategories}
     />
   );
 };

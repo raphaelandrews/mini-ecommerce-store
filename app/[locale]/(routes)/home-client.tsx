@@ -2,18 +2,20 @@
 
 import { useTranslations } from 'next-intl';
 
-import { Product } from "@/types";
+import { Category, Product } from "@/types";
 
 import ProductList from "@/components/product-list";
 import Billboard from "@/components/ui/billboard";
 import Container from "@/components/ui/container";
+import CategoriesListHome from '@/components/categories-list-home';
 
 interface HomePageProps {
   billboard: Billboard;
   products: Product[];
+  categories: Category[];
 }
 
-const HomePageClient = ({ billboard, products }: HomePageProps) => {
+const HomePageClient = ({ billboard, categories, products }: HomePageProps) => {
   const t = useTranslations('Home');
 
   return (
@@ -23,6 +25,7 @@ const HomePageClient = ({ billboard, products }: HomePageProps) => {
           data={billboard}
         />
         <ProductList title={t('featuredProducts')} items={products} />
+        <CategoriesListHome categories={categories} />
       </main>
     </Container>
   )

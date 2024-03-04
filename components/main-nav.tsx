@@ -39,50 +39,52 @@ const MainNav: React.FC<MainNavProps> = ({
   }));
 
   return (
-      <NavigationMenu className="mt-4">
-         <ScrollArea className="w-full whitespace-nowrap rounded-md">
+    <NavigationMenu className="mt-4">
+      <ScrollArea className="w-full whitespace-nowrap rounded-md">
         <NavigationMenuList className="gap-2">
-          {categories.map((category) => (
-            <div key={category.id}>
-              {category.subcategories && category.subcategories.length > 0 ? (
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger>
+          {categories
+            .filter(category => category.subcategories.length > 0)
+            .map((category) => (
+              <div key={category.id}>
+                {category.subcategories && category.subcategories.length > 0 ? (
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>
+                      <Link
+                        href={`/category/${category.id}`}
+                      >
+                        {category.name}
+                      </Link>
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="grid lg:w-[500px] lg:grid-cols-[.75fr_1fr] gap-3 p-4 md:w-[400px]">
+                        {category.subcategories && category.subcategories.length > 0 && (
+                          <>
+                            {category.subcategories.map((subcategory: Subcategory) => (
+                              <ListItem
+                                key={subcategory.id}
+                                href={`/category/${category.id}?subcategoryId=${subcategory.id}`}
+                                title={subcategory.name}
+                              />
+                            ))}
+                          </>
+                        )}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>)
+                  :
+                  (<NavigationMenuItem className="cursor-pointer">
                     <Link
                       href={`/category/${category.id}`}
+                      legacyBehavior
                     >
-                      {category.name}
+                      <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                        {category.name}
+                      </NavigationMenuLink>
                     </Link>
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid lg:w-[500px] lg:grid-cols-[.75fr_1fr] gap-3 p-4 md:w-[400px]">
-                      {category.subcategories && category.subcategories.length > 0 && (
-                        <>
-                          {category.subcategories.map((subcategory: Subcategory) => (
-                            <ListItem
-                              key={subcategory.id}
-                              href={`/category/${category.id}?subcategoryId=${subcategory.id}`}
-                              title={subcategory.name}
-                            />
-                          ))}
-                        </>
-                      )}
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>)
-                :
-                (<NavigationMenuItem className="cursor-pointer">
-                  <Link
-                    href={`/category/${category.id}`}
-                    legacyBehavior
-                  >
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      {category.name}
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
-                )}
-            </div>
-          ))}
+                  </NavigationMenuItem>
+                  )}
+              </div>
+            ))}
           <NavigationMenuItem>
             <NavigationMenuTrigger>
               <Link
@@ -106,9 +108,9 @@ const MainNav: React.FC<MainNavProps> = ({
             </NavigationMenuContent>
           </NavigationMenuItem>
         </NavigationMenuList>
-          <ScrollBar orientation="horizontal" className="border-transparent h-0" />
-          </ScrollArea>
-      </NavigationMenu >
+        <ScrollBar orientation="horizontal" className="border-transparent h-0" />
+      </ScrollArea>
+    </NavigationMenu >
   )
 };
 

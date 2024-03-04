@@ -60,7 +60,7 @@ const MainNav: React.FC<MainNavProps> = ({
                           {category.subcategories.map((subcategory: Subcategory) => (
                             <ListItem
                               key={subcategory.id}
-                              href={`/subcategory/${subcategory.id}`}
+                              href={`/category/${category.id}?subcategoryId=${subcategory.id}`}
                               title={subcategory.name}
                             />
                           ))}

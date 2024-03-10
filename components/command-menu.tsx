@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
@@ -90,9 +91,12 @@ const CommandMenu = () => {
                         {locales.map((lang) => (
                             <CommandItem
                                 key={lang}
-                                onClick={() => handleLanguageChange(lang)}
-                                className={cn("flex items-center gap-2", lang.toUpperCase() === language ? "bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : '')}
+                                className={lang.toUpperCase() === language ? "bg-tertiary dark:bg-card hover:dark:bg-accent transition-all" : ''}
                             >
+                                <div
+                                 onClick={() => handleLanguageChange(lang)}
+                                 className="flex items-center gap-2 w-full cursor-pointer"
+                                >
                                 <Image
                                     src={formatLangFlag(lang)}
                                     alt={lang}
@@ -104,6 +108,7 @@ const CommandMenu = () => {
                                 {lang.toUpperCase() === language ? (
                                     <CheckIcon className="h-4 w-4" />
                                 ) : <div className="h-4 w-4" />}
+                                </div>
                             </CommandItem>
                         ))}
                     </CommandGroup>

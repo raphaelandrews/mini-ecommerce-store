@@ -9,8 +9,8 @@ import { Badge } from "@/components/ui/badge";
 
 export type OrderColumn = {
   order: Order;
-  totalQuantity: number; 
-  totalPrice: number; 
+  totalQuantity: number;
+  totalPrice: number;
   fullName: string;
 }
 

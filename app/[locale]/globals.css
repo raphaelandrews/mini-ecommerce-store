@@ -27,6 +27,14 @@
  
     --accent: 21 100% 50%;
     --accent-foreground: 0 0% 100%;
+
+    --success: 172 61% 49%;
+    --success-foreground: 176 31% 10%;
+    --success-border: 169 44% 30%;
+
+    --danger: 4 61% 49%;
+    --danger-foreground: 8 31% 10%;
+    --danger-border: 1 44% 30%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
